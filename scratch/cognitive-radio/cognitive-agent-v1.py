@@ -20,8 +20,9 @@ a_size = ac_space.n
 model = keras.Sequential()
 model.add(keras.layers.Dense(s_size, input_shape=(s_size,), activation='relu'))
 model.add(keras.layers.Dense(a_size, activation='softmax'))
-model.compile(optimizer=tf.train.AdamOptimizer(0.001),
-              loss='categorical_crossentropy',
+adam = keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, amsgrad=False)
+model.compile(optimizer=adam,
+              loss='mean_squared_error',
               metrics=['accuracy'])
 
 total_episodes = 200
