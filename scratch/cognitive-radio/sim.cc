@@ -60,7 +60,19 @@ main (int argc, char* argv[])
   std::map<uint32_t, std::vector<uint32_t>> puPattern;
   for (int i = 0; i < 10; i++) {
     std::vector<uint32_t> temp(10, 0);
-    temp.at(i) = 1;
+    if (i % 2 != 0) {
+      temp.at(1) = 1;
+      temp.at(3) = 1;
+      temp.at(5) = 1;
+      temp.at(7) = 1;
+      temp.at(9) = 1;
+    } else {
+      temp.at(0) = 1;
+      temp.at(2) = 1;
+      temp.at(4) = 1;
+      temp.at(6) = 1;
+      temp.at(8) = 1;
+    }
     puPattern.insert(std::pair<uint32_t, std::vector<uint32_t>> (i, temp));
   }
   
