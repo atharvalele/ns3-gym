@@ -48,10 +48,10 @@ for e in range(total_episodes):
         # Choose action
         if np.random.rand(1) < epsilon:
             action = np.random.randint(a_size)
-            //print(action)
+            #print(action)
         else:
             action = np.argmax(model.predict(state)[0])
-            //print(action)
+            #print(action)
         # Step
         next_state, reward, done, _ = env.step(action)
 
@@ -61,7 +61,7 @@ for e in range(total_episodes):
             break
 
         next_state = np.reshape(next_state, [1, s_size])
-        //print(next_state)
+        #print(next_state)
 
         # Train
         target = reward
